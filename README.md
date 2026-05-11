@@ -1,1 +1,1448 @@
-# education_for_your_children
+<!DOCTYPE html>
+<html dir="ltr" lang="en-GB" prefix="og: https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Education for Your Children — MyHeart Portal</title>
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <!-- Google Font & base styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Roboto:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Swiper JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #fff;
+            color: #1a1e2b;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-left: 32px;
+            padding-right: 32px;
+        }
+
+        /* Header Styles */
+        .site-header {
+            background: #fff;
+            border-bottom: 1px solid #e7e7e7;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .logo img {
+            max-width: 160px;
+            height: auto;
+            display: block;
+        }
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        .nav-menu li {
+            position: relative;
+        }
+        .nav-menu a {
+            font-weight: 500;
+            font-size: 16px;
+            color: #22205f;
+            padding: 5px 0;
+            transition: color 0.2s;
+            white-space: nowrap;
+        }
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #c52028;
+        }
+        .nav-menu li:not(:last-child)::after {
+            content: "|";
+            color: #ccc;
+            margin-left: 12px;
+            position: absolute;
+            right: -15px;
+            top: 5px;
+            font-weight: 300;
+        }
+        .nav-menu .menu-item-has-children>a::after {
+            content: '\f0d7';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-left: 5px;
+            font-size: 12px;
+        }
+        .sub-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+            padding: 8px 0;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.2s;
+            z-index: 10;
+        }
+        .nav-menu li:hover>.sub-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+        .sub-menu li {
+            width: 100%;
+        }
+        .sub-menu li::after {
+            display: none;
+        }
+        .sub-menu a {
+            display: block;
+            padding: 8px 18px;
+            font-weight: 400;
+            font-size: 15px;
+            color: #333;
+            white-space: nowrap;
+        }
+        .sub-menu a:hover {
+            background: #f5f5f5;
+            color: #c52028;
+        }
+        .btn-login {
+            background-color: #c52028;
+            color: #fff !important;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 18px;
+            font-weight: 500;
+            font-size: 15px;
+            transition: background 0.2s;
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+        .btn-login:hover {
+            background-color: #922039;
+        }
+        .mobile-toggle {
+            display: none;
+            font-size: 24px;
+            color: #22205f;
+            cursor: pointer;
+        }
+
+        /* Banner Section */
+        .banner-section {
+            position: relative;
+            background-image: url('https://myheart.my/wp-content/uploads/2023/06/School-Education-scaled.jpg');
+            background-position: center 35%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+        }
+        .banner-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 75%;
+            height: 100%;
+            background: linear-gradient(105deg, rgba(34, 32, 95, 0.85) 0%, rgba(105, 32, 71, 0.7) 40%, rgba(197, 32, 40, 0.55) 65%, rgba(197, 32, 40, 0.3) 85%, transparent 100%);
+            z-index: 1;
+        }
+        .banner-content {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            padding-left: 32px;
+            padding-right: 32px;
+            position: relative;
+            z-index: 2;
+        }
+        .banner-title {
+            color: #fff;
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.2;
+            text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.25);
+            margin: 0;
+            max-width: 700px;
+        }
+
+        /* Main Content */
+        .modern-edu-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 48px 32px 80px 32px;
+        }
+        .leading-hub-section {
+            background: transparent;
+            margin-bottom: 48px;
+        }
+        .hub-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: #22205f;
+        }
+        .hub-title span {
+            color: #c52028;
+            position: relative;
+            display: inline-block;
+        }
+        .hub-title span:after {
+            content: '';
+            position: absolute;
+            bottom: 6px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(197, 32, 40, 0.2);
+            border-radius: 4px;
+            z-index: -1;
+        }
+        .hub-description {
+            font-size: 1.08rem;
+            line-height: 1.6;
+            color: #2c3e50;
+            margin-bottom: 1.2rem;
+            max-width: 90%;
+        }
+        .hub-subtext {
+            font-size: 1rem;
+            color: #475569;
+            margin-bottom: 2rem;
+            border-left: 3px solid #c52028;
+            padding-left: 1.2rem;
+            font-weight: 500;
+        }
+
+        .hub-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #c52028;
+            color: white;
+            padding: 0.9rem 2.2rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 14px rgba(197, 32, 40, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+        .hub-cta i {
+            transition: transform 0.2s;
+        }
+        .hub-cta:hover {
+            background: #22205f;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 22px rgba(34, 32, 95, 0.3);
+        }
+        .hub-cta:hover i {
+            transform: translateX(4px);
+        }
+
+        /* Filter Panel */
+        .filter-panel {
+            background: #f8fafc;
+            border-radius: 28px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            border: 1px solid #eef2f6;
+        }
+        .search-box {
+            flex: 2;
+            min-width: 220px;
+            position: relative;
+        }
+        .search-box i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8a99b0;
+            font-size: 1.1rem;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 12px 16px 12px 44px;
+            border: 1px solid #e2e8f0;
+            border-radius: 60px;
+            font-size: 0.95rem;
+            background: white;
+            transition: all 0.2s;
+        }
+        .search-box input:focus {
+            outline: none;
+            border-color: #c52028;
+            box-shadow: 0 0 0 3px rgba(197, 32, 40, 0.1);
+        }
+        .tag-filters {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .tag-btn {
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #1e293b;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .tag-btn i {
+            font-size: 0.8rem;
+        }
+        .tag-btn.active {
+            background: #c52028;
+            border-color: #c52028;
+            color: white;
+        }
+        .tag-btn.rep-partner.active {
+            background: #692047;
+            border-color: #692047;
+        }
+        .tag-btn:hover:not(.active) {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        .tag-info-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #cbd5e1;
+            color: #1e293b;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            font-size: 10px;
+            cursor: pointer;
+            margin-left: 4px;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+        .tag-info-icon:hover {
+            background: #c52028;
+            color: white;
+        }
+        .tag-info-icon .tooltip-text {
+            visibility: hidden;
+            opacity: 0;
+            background-color: #1e293b;
+            color: white;
+            text-align: left;
+            border-radius: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            z-index: 10;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            font-weight: normal;
+            transition: all 0.2s ease;
+            pointer-events: none;
+            width: max-content;
+            max-width: 180px;
+            white-space: normal;
+            line-height: 1.4;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .tag-info-icon .tooltip-text::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 5px;
+            border-style: solid;
+            border-color: #1e293b transparent transparent transparent;
+        }
+        .tag-info-icon:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .results-stats {
+            font-size: 0.85rem;
+            color: #475569;
+        }
+
+        /* School Cards - 4 columns */
+        .schools-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 1rem;
+            align-items: stretch;
+        }
+        .school-card {
+            background: #ffffff;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
+            box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(226, 232, 240, 0.6);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .school-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.12);
+            border-color: #e0e7ff;
+        }
+        .card-logo {
+            background: linear-gradient(145deg, #fbfdff 0%, #f7f9fc 100%);
+            padding: 1.5rem 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 120px;
+            border-bottom: 1px solid #f0f4fa;
+        }
+        .card-logo img {
+            max-height: 65px;
+            width: auto;
+            object-fit: contain;
+        }
+        .card-content {
+            padding: 1.2rem 1.2rem 1.4rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .school-name {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 0.6rem;
+            color: #22205f;
+            line-height: 1.3;
+        }
+        .badge-group {
+            display: flex;
+            gap: 8px;
+            margin: 6px 0 10px;
+            flex-wrap: wrap;
+        }
+
+        .badge.rep {
+            background: linear-gradient(115deg, #E9F7E9, #DCFCE7);
+            color: #166534;
+            border-left: 2px solid #2e7d32;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .desc {
+            color: #334155;
+            font-size: 0.82rem;
+            margin: 0.4rem 0 0.8rem;
+            line-height: 1.45;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .button-wrapper {
+            margin-top: auto;
+            padding-top: 0.5rem;
+        }
+
+        .btn-incentive {
+            background: transparent;
+            border: 1.5px solid #c52028;
+            color: #c52028;
+            padding: 0.6rem 0.8rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .btn-incentive:hover {
+            background: #c52028;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(197, 32, 40, 0.25);
+        }
+        .btn-incentive i {
+            font-size: 0.75rem;
+            transition: transform 0.2s;
+        }
+        .btn-incentive:hover i {
+            transform: translateX(3px);
+        }
+
+        /* ========== SPECIAL CARD - CALLING ALL SCHOOLS ========== */
+        .special-card {
+            border-radius: 28px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 380px;
+            position: relative;
+        }
+        .special-card.blue-gradient {
+            background: linear-gradient(145deg, #0a2b5e, #1a3a6e, #2a4a8e);
+            border: 1px solid rgba(255, 213, 61, 0.3);
+        }
+        .special-card.blue-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(255,213,61,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .special-card .card-content {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 1.5rem;
+        }
+        .special-card .card-header h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            color: #ffffff;
+            line-height: 1.3;
+            letter-spacing: -0.3px;
+        }
+        .special-card .invite-subtitle {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            max-width: 280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .special-card .connect-btn {
+            background: linear-gradient(95deg, #fed53d, #e6b800);
+            color: #22205f;
+            border: none;
+            padding: 0.85rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            width: auto;
+            min-width: 220px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .special-card .connect-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(95deg, #ffdf4a, #f5c400);
+        }
+        .special-card .connect-btn i {
+            transition: transform 0.2s;
+        }
+        .special-card .connect-btn:hover i {
+            transform: translateX(6px);
+        }
+        .special-card.blue-gradient:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 45px -12px rgba(0, 0, 0, 0.35);
+            border-color: #fed53d;
+        }
+        @media (max-width: 768px) {
+            .special-card .card-header h3 {
+                font-size: 1.4rem;
+            }
+            .special-card .invite-subtitle {
+                font-size: 0.9rem;
+                margin-bottom: 1.5rem;
+            }
+            .special-card .connect-btn {
+                padding: 0.7rem 1.2rem;
+                min-width: 180px;
+                font-size: 0.9rem;
+            }
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: #fef9f9;
+            border-radius: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Floating Widget */
+        .floating-widget {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            cursor: pointer;
+        }
+        .floating-widget.minimized .widget-pill { display: flex; }
+        .floating-widget.minimized .widget-expanded { display: none; }
+        .floating-widget.maximized .widget-pill { display: none; }
+        .floating-widget.maximized .widget-expanded { display: block; }
+        .widget-pill {
+            background: linear-gradient(135deg, #22205f 0%, #692047 100%);
+            border-radius: 40px 0 0 40px;
+            padding: 18px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            box-shadow: -4px 4px 15px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+        .widget-pill:hover {
+            transform: translateX(-5px);
+            box-shadow: -6px 6px 20px rgba(0, 0, 0, 0.2);
+        }
+        .pill-icon {
+            background: #fed53d;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #22205f;
+            font-size: 18px;
+        }
+        .pill-text {
+            color: white;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            text-align: center;
+            line-height: 1.3;
+        }
+        .pill-arrow {
+            color: #fed53d;
+            font-size: 14px;
+            transform: rotate(90deg);
+        }
+        .widget-expanded {
+            background: white;
+            border-radius: 28px 0 0 28px;
+            width: 380px;
+            box-shadow: -10px 20px 40px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            animation: slideInRight 0.3s ease;
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .expanded-header {
+            background: linear-gradient(135deg, #22205f 0%, #692047 100%);
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+        .expanded-header h4 {
+            color: #fed53d;
+            font-size: 1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0;
+        }
+        .close-expanded {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+        .close-expanded:hover {
+            background: #c52028;
+            transform: scale(1.05);
+        }
+        .event-carousel { position: relative; }
+        .swiper { width: 100%; height: auto; }
+        .swiper-slide { background: white; }
+        .event-banner-img { width: 100%; height: 160px; object-fit: cover; }
+        .event-slide-content { padding: 16px 20px 20px; }
+        .event-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #22205f;
+            margin-bottom: 8px;
+        }
+        .event-date-location {
+            font-size: 0.75rem;
+            color: #64748b;
+            margin-bottom: 12px;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .countdown-box {
+            background: linear-gradient(135deg, #fed53d20, #fed53d08);
+            border-radius: 16px;
+            padding: 10px;
+            text-align: center;
+            margin: 12px 0;
+            border: 1px solid #fed53d40;
+        }
+        .countdown-number {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #c52028;
+            line-height: 1;
+        }
+        .rsvp-event-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(95deg, #c52028, #922039);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin: 12px 0 8px;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        .rsvp-event-btn:hover {
+            background: linear-gradient(95deg, #22205f, #692047);
+            transform: translateY(-2px);
+        }
+        .swiper-button-prev-custom, .swiper-button-next-custom {
+            position: absolute;
+            top: 85px;
+            width: 32px;
+            height: 32px;
+            background: rgba(34, 32, 95, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            color: white;
+            font-size: 14px;
+        }
+        .swiper-button-prev-custom { left: 12px; }
+        .swiper-button-next-custom { right: 12px; }
+        .swiper-pagination { bottom: 8px !important; }
+        .swiper-pagination-bullet-active { background: #c52028 !important; }
+
+        /* Modal Popup */
+        .incentive-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+        .modal-content {
+            background: white;
+            max-width: 500px;
+            width: 90%;
+            border-radius: 32px;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 25px 40px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .modal-close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #64748b;
+        }
+        .modal-close:hover {
+            color: #c52028;
+        }
+        .modal-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #22205f;
+        }
+        .modal-buttons {
+            margin-top: 24px;
+        }
+        .modal-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            background: linear-gradient(95deg, #c52028, #922039);
+            color: white;
+        }
+        .modal-btn:hover {
+            background: linear-gradient(95deg, #22205f, #692047);
+            transform: translateY(-2px);
+        }
+
+        /* Join MyHeart Section & Footer */
+        .join-myheart-section {
+            background-color: #ECD5BB;
+            border-style: solid;
+            border-width: 0px 0px 2px 0px;
+            border-color: #FFD53D;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .join-myheart-section .bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://myheart.my/wp-content/uploads/2023/02/Pattern.png');
+            background-position: center center;
+            background-size: cover;
+            opacity: 0.11;
+            pointer-events: none;
+        }
+        .join-container {
+            max-width: 1170px;
+            margin: 0 auto;
+            padding: 0 15px;
+            position: relative;
+            z-index: 2;
+        }
+        .join-content {
+            text-align: center;
+        }
+        .join-title {
+            font-family: "Roboto", sans-serif;
+            font-size: 50px;
+            font-weight: 700;
+            line-height: 55px;
+            letter-spacing: 0.5px;
+            color: #22205F;
+            margin-bottom: 20px;
+        }
+        .join-subtitle {
+            font-family: "Roboto", sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 25px;
+            color: #000000;
+            margin-bottom: 30px;
+        }
+        .elementor-button {
+            display: inline-block;
+            background-color: #CC0000;
+            font-family: "Roboto", sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .elementor-button:hover {
+            background-color: #a30000;
+        }
+
+        .site-footer {
+            background-color: #22205F;
+            position: relative;
+            padding: 40px 180px 40px 150px;
+        }
+        .footer-bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://myheart.my/wp-content/uploads/2024/02/Flag-1.png');
+            background-position: top center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.07;
+            pointer-events: none;
+        }
+        .footer-inner-container {
+            max-width: 1170px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .footer-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+        .footer-col {
+            flex: 0 0 20%;
+            max-width: 20%;
+            padding: 0 15px;
+        }
+        .footer-heading {
+            font-family: "Roboto", sans-serif;
+            font-size: 17px;
+            font-weight: 600;
+            line-height: 25px;
+            color: #FFD53D;
+            margin-bottom: 15px;
+        }
+        .footer-link {
+            font-family: "Roboto", sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 25px;
+            color: #FFFFFF;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .footer-link:hover {
+            color: #FFD53D;
+        }
+        .footer-note {
+            font-family: "Roboto", sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 25px;
+            color: #FFFFFF;
+            margin-bottom: 12px;
+            white-space: nowrap;
+        }
+        .talentcorp-logo {
+            text-align: right;
+            margin-top: 10px;
+        }
+        .talentcorp-logo img {
+            width: 80%;
+            max-width: 100%;
+            height: auto;
+        }
+        .talentcorp-sub {
+            font-family: "Roboto", sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: right;
+            margin-top: 5px;
+            white-space: nowrap;
+        }
+        .footer-divider {
+            margin: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.55);
+        }
+        .social-icons-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin: 20px 0;
+        }
+        .social-icon-link {
+            color: #FFFFFF;
+            font-size: 19px;
+            width: 35px;
+            height: 35px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: transparent;
+            transition: color 0.2s;
+        }
+        .social-icon-link:hover {
+            color: #FFD53D;
+        }
+        .twitter-svg {
+            width: 18px;
+            height: 18px;
+            fill: white;
+            vertical-align: middle;
+        }
+        .copyright-text {
+            text-align: center;
+            font-family: "Roboto", sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+            color: #FFFFFF;
+            margin: 10px 0;
+        }
+        .legal-links {
+            text-align: center;
+            font-family: "Roboto", sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            color: #FFFFFF;
+        }
+        .legal-links a {
+            color: #FFFFFF;
+            margin: 0 5px;
+        }
+        .legal-links a:hover {
+            color: #FFD53D;
+        }
+        .newsletter-bar {
+            background: #c52028;
+            padding: 8px 20px;
+            text-align: center;
+            font-family: "Roboto", sans-serif;
+        }
+        .newsletter-bar form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        .newsletter-label {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 400;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        .newsletter-email {
+            background: #fff;
+            border: 1px solid #fff;
+            padding: 6px 12px;
+            font-size: 13px;
+            border-radius: 0;
+            width: 240px;
+            font-family: "Roboto", sans-serif;
+            height: 32px;
+        }
+        .newsletter-submit {
+            background: #22205f;
+            border: 1px solid #22205f;
+            color: #ffffff;
+            padding: 6px 16px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 0;
+            font-family: "Roboto", sans-serif;
+            height: 32px;
+            white-space: nowrap;
+        }
+        .newsletter-submit:hover {
+            opacity: 0.9;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #CC0000, #ff3333);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 5px 15px rgba(204, 0, 0, 0.3);
+            z-index: 1000;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            background: linear-gradient(135deg, #a30000, #cc0000);
+            box-shadow: 0 10px 25px rgba(204, 0, 0, 0.4);
+        }
+
+        @media (max-width: 1200px) {
+            .schools-grid { grid-template-columns: repeat(3, 1fr); }
+            .footer-note { white-space: normal; }
+            .talentcorp-sub { white-space: normal; text-align: center; }
+            .talentcorp-logo { text-align: center; }
+        }
+        @media (max-width: 1024px) {
+            .site-footer { padding: 50px 30px; }
+            .footer-col { flex: 0 0 25%; max-width: 25%; }
+            .join-title { font-size: 40px; line-height: 49px; }
+            .join-subtitle { font-size: 16px; }
+        }
+        @media (max-width: 900px) {
+            .schools-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .banner-title { font-size: 32px; }
+            .hub-title { font-size: 1.8rem; }
+            .filter-panel { flex-direction: column; align-items: stretch; }
+            .modern-edu-wrapper { padding: 32px 20px 48px 20px; }
+            .join-title { font-size: 30px; line-height: 32px; }
+            .join-subtitle { font-size: 15px; }
+            .floating-widget { right: 0; top: auto; bottom: 20px; transform: none; }
+            .widget-pill { flex-direction: row; border-radius: 40px; padding: 12px 20px; }
+            .pill-arrow { transform: rotate(0deg); }
+            .footer-col { flex: 0 0 50%; max-width: 50%; margin-bottom: 20px; }
+            .site-footer { padding: 30px 20px; }
+            .talentcorp-logo { text-align: center; }
+            .talentcorp-logo img { width: 70%; }
+            .talentcorp-sub { text-align: center; white-space: normal; }
+            .footer-note { white-space: normal; }
+            .newsletter-label { white-space: normal; }
+            .newsletter-bar form { flex-direction: column; }
+            .newsletter-email { width: 90%; max-width: 280px; }
+            .back-to-top { bottom: 20px; right: 20px; width: 45px; height: 45px; font-size: 18px; }
+        }
+        @media (max-width: 480px) {
+            .schools-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo"><a href="https://myheart.my"><img src="https://myheart.my/wp-content/uploads/2023/02/MYHeart-BI.png" alt="MyHeart"></a></div>
+            <div class="mobile-toggle" id="mobile-toggle"><i class="fas fa-bars"></i></div>
+            <div class="main-nav" id="main-nav">
+                <ul class="nav-menu">
+                    <li class="menu-item-has-children"><a href="#">About</a>
+                        <ul class="sub-menu"><li><a href="https://myheart.my/about-myheart/">About MyHeart</a></li><li><a href="https://myheart.my/contact-us/">Contact Us</a></li><li><a href="https://myheart.my/faq/">FAQ</a></li></ul>
+                    </li>
+                    <li><a href="https://myheart.my/member-benefits/">Member Benefits</a></li>
+                    <li class="menu-item-has-children"><a href="#">Living Abroad</a>
+                        <ul class="sub-menu"><li><a href="https://myheart.my/network-and-connect/">Network and Connect</a></li><li><a href="https://myheart.my/events/">Events</a></li><li><a href="https://myheart.my/stories/">MyHeart Stories</a></li></ul>
+                    </li>
+                    <li class="menu-item-has-children"><a href="#">Studying Abroad</a>
+                        <ul class="sub-menu"><li><a href="https://myheart.my/young-global-leader/">Young Global Leader</a></li><li><a href="https://myheart.my/cherita-kita/">Cherita Kita</a></li></ul>
+                    </li>
+                    <li class="menu-item-has-children"><a href="#" class="active">Returning to Malaysia</a>
+                        <ul class="sub-menu"><li><a href="https://myheart.my/rep/">Returning Expert Programme</a></li><li><a href="https://myheart.my/work-in-malaysia/">Work in Malaysia</a></li><li><a href="https://myheart.my/start-your-business-in-malaysia/">Start Your Business</a></li><li><a href="https://myheart.my/education-for-your-children/" class="active">Education for Your Children</a></li></ul>
+                    </li>
+                </ul>
+                <a href="https://myheart.my/my-account" class="btn-login">Register/Login</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="banner-section" id="heroSection">
+        <div class="banner-content"><h1 class="banner-title">Education for Your Children</h1></div>
+    </section>
+
+    <div class="modern-edu-wrapper" id="contentSection">
+        <div class="leading-hub-section">
+            <div class="hub-title">A leading education hub <span>in the region</span></div>
+            <div class="hub-description">Boasting a strong network of prestigious universities and colleges, a plethora of world-class private and international schools as well as a wide range of curriculums, Malaysia has one of the most advanced education systems in Southeast Asia, which attracts hundreds of thousands of students from all over the world annually.</div>
+            <div class="hub-subtext">As such, we have forged partnerships with a wide assortment of education institutions in Malaysia to facilitate your return home to Malaysia with your family.</div>
+            <a href="https://myheart.my/app/user/register" class="hub-cta" target="_blank">Join MyHeart <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="filter-panel">
+            <div class="search-box"><i class="fas fa-search"></i><input type="text" id="searchInput" placeholder="Search by school name, curriculum or location..."></div>
+            <div class="tag-filters">
+                <button class="tag-btn active" data-filter="all"><i class="fas fa-globe"></i> All Partners</button>
+                <button class="tag-btn rep-partner" data-filter="rep"><i class="fas fa-star-of-life"></i> REP Partner <span class="tag-info-icon"><i class="fas fa-info"></i><span class="tooltip-text">REP approved applicant only</span></span></button>
+            </div>
+            <div class="results-stats" id="resultsStats">Showing <span id="resultCount">0</span> schools</div>
+        </div>
+
+        <!-- Dynamic Schools Grid -->
+        <div id="schoolsContainer" class="schools-grid"></div>
+
+        <!-- Special Card: Calling all schools -->
+        <div class="schools-grid" style="margin-top: 2rem;">
+            <div class="special-card blue-gradient">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3>Calling all schools in Malaysia</h3>
+                        <div class="invite-subtitle">Join the MyHeart network & reach Malaysians abroad</div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://myheart.my/app/school/register" target="_blank" class="connect-btn">
+                            Register Your School <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="emptyMessage" style="display: none;" class="empty-state"><i class="fas fa-school-circle-exclamation"></i><h3>No matching schools found</h3><p>Try adjusting your search or filter criteria.</p></div>
+    </div>
+
+    <!-- Floating Widget (unchanged) -->
+    <div class="floating-widget minimized" id="floatingWidget">
+        <div class="widget-pill" id="widgetPill">
+            <div class="pill-icon"><i class="fas fa-calendar-alt"></i></div>
+            <div class="pill-text">Upcoming<br>Event</div>
+            <div class="pill-arrow"><i class="fas fa-chevron-right"></i></div>
+        </div>
+        <div class="widget-expanded" id="widgetExpanded">
+            <div class="expanded-header" id="expandedHeader">
+                <h4><i class="fas fa-calendar-star"></i> Upcoming Event</h4>
+                <button class="close-expanded" id="closeExpandedBtn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="event-carousel">
+                <div class="swiper eventSwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img class="event-banner-img" src="https://myheart.my/wp-content/uploads/2023/06/School-Education-scaled.jpg" alt="Education Fair"><div class="event-slide-content"><div class="event-title">MyHeart Education Fair 2026</div><div class="event-date-location"><span><i class="fas fa-calendar-alt"></i> 17 June 2026</span><span><i class="fas fa-map-marker-alt"></i> KL Convention Centre</span></div><div class="countdown-box"><div class="countdown-number" id="days1">--</div><div class="countdown-text">days to go</div></div><button class="rsvp-event-btn" data-event-link="https://myheart.my/events/education-fair-2026">Register Now <i class="fas fa-arrow-right"></i></button></div></div>
+                        <div class="swiper-slide"><img class="event-banner-img" src="https://myheart.my/wp-content/uploads/2024/09/School-2.jpg" alt="Open Day"><div class="event-slide-content"><div class="event-title">International School Open Day 2026</div><div class="event-date-location"><span><i class="fas fa-calendar-alt"></i> 17 June 2026</span><span><i class="fas fa-map-marker-alt"></i> Mont Kiara, KL</span></div><div class="countdown-box"><div class="countdown-number" id="days2">--</div><div class="countdown-text">days to go</div></div><button class="rsvp-event-btn" data-event-link="https://myheart.my/events/open-day-june-2026">Reserve Spot <i class="fas fa-arrow-right"></i></button></div></div>
+                        <div class="swiper-slide"><img class="event-banner-img" src="https://myheart.my/wp-content/uploads/2024/09/a1c2m0MfuYN3Ifft9Dx6BBNJJon3Pq.jpeg" alt="Webinar"><div class="event-slide-content"><div class="event-title">Year-End Education Webinar 2026</div><div class="event-date-location"><span><i class="fas fa-calendar-alt"></i> 17 June 2026</span><span><i class="fas fa-map-marker-alt"></i> Online (Zoom)</span></div><div class="countdown-box"><div class="countdown-number" id="days3">--</div><div class="countdown-text">days to go</div></div><button class="rsvp-event-btn" data-event-link="https://myheart.my/events/education-webinar-2026">Join Webinar <i class="fas fa-arrow-right"></i></button></div></div>
+                    </div>
+                    <div class="swiper-button-prev-custom"><i class="fas fa-chevron-left"></i></div>
+                    <div class="swiper-button-next-custom"><i class="fas fa-chevron-right"></i></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Popup -->
+    <div id="incentiveModal" class="incentive-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModalBtn"><i class="fas fa-times"></i></button>
+            <h3 id="modalSchoolName">School Name</h3>
+            <div id="modalIncentiveContent" style="font-size: 1rem; line-height: 1.5; color: #2d3e50; text-align: left;"></div>
+            <div class="modal-buttons"><button id="modalKnowMoreBtn" class="modal-btn">Click to know more <i class="fas fa-arrow-right"></i></button></div>
+        </div>
+    </div>
+
+    <!-- Join MyHeart Section -->
+    <section class="join-myheart-section">
+        <div class="bg-overlay"></div>
+        <div class="join-container">
+            <div class="join-content">
+                <div class="join-title">Join MyHeart today!</div>
+                <div class="join-subtitle">Get started on your journey to connecting with fellow Malaysians around the world!</div>
+                <a href="https://myheart.my/app/user/register" class="elementor-button" target="_blank">Register here</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-bg-overlay"></div>
+        <div class="footer-inner-container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <div class="footer-heading"><br>MyHeart</div>
+                    <a href="https://myheart.my/about-myheart/" class="footer-link" target="_blank">About Us</a>
+                    <a href="https://myheart.my/contact-us/" class="footer-link" target="_blank">Contact Us</a>
+                    <a href="https://myheart.my/faq/" class="footer-link" target="_blank">FAQ</a>
+                    <a href="https://myheart.my/sitemap/" class="footer-link" target="_blank">Sitemap</a>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-heading"><br>Discover</div>
+                    <a href="https://myheart.my/stories/" class="footer-link" target="_blank">Stories</a>
+                    <a href="https://myheart.my/events/" class="footer-link" target="_blank">Events</a>
+                    <a href="https://myheart.my/member-benefits/" class="footer-link" target="_blank">Member Benefits</a>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-heading"><br>Initiatives</div>
+                    <a href="https://myheart.my/network-and-connect/" class="footer-link" target="_blank">Network &amp; Connect</a>
+                    <a href="https://myheart.my/collaboration/" class="footer-link" target="_blank">Collaboration</a>
+                    <a href="https://myheart.my/young-global-leader/" class="footer-link" target="_blank">Young Global Leader</a>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-heading"><br></div>
+                    <a href="https://myheart.my/work-in-malaysia/" class="footer-link" target="_blank"><br>Work in Malaysia</a>
+                    <a href="https://myheart.my/rep/" class="footer-link" target="_blank">Returning Expert Programme</a>
+                    <a href="https://myheart.my/education/" class="footer-link" target="_blank">Education for Your Children</a>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-note"><br><br><span style="font-weight: normal">An initiative by TalentCorp</span></div>
+                    <div class="talentcorp-logo">
+                        <a href="https://www.talentcorp.com.my/" target="_blank">
+                            <img src="https://myheart.my/wp-content/uploads/2024/02/Ministry-1-1024x275.png" alt="TalentCorp">
+                        </a>
+                    </div>
+                    <div class="talentcorp-sub">GROUP OF COMPANIES</div>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="social-icons-wrapper">
+                <a href="https://www.facebook.com/TalentCorpMsia/" class="social-icon-link" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com/TalentCorpMsia" class="social-icon-link" target="_blank"><svg class="twitter-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                <a href="https://www.youtube.com/channel/UCqL7rvZTEfL-yd6Q8m73g1Q" class="social-icon-link" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/showcase/malaysia-at-heart/posts/?feedView=all" class="social-icon-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/talentcorpmsia/" class="social-icon-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@talentcorpmsia" class="social-icon-link" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <div class="copyright-text">© 2026 MyHeart. All right reserved.</div>
+            <div class="legal-links"><a href="https://myheart.my/terms-conditions/" target="_blank">Terms and Conditions</a> | <a href="https://myheart.my/privacy-policy/" target="_blank">Privacy Policy</a></div>
+        </div>
+    </footer>
+
+    <div class="newsletter-bar">
+        <form method="post"><span class="newsletter-label">Subscribe to our newsletter to stay updated on exciting events, inspiring stories &amp; more!</span><input type="email" name="email" placeholder="Enter your email address..." class="newsletter-email" required><button type="submit" class="newsletter-submit">Subscribe</button></form>
+    </div>
+
+    <button class="back-to-top" id="backToTopBtn" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        // Schools data (unchanged)
+        const schoolsData = [
+            { name: "Australian International School Malaysia", logo: "https://myheart.my/wp-content/uploads/elementor/thumbs/AISM-r1e4c52kxz9kp8e5yjw20ckoj0iqhzwz4yva1me1rc.png", tag: "rep", incentive: "100% waiver of Admissions Fee (up to RM20,000)" },
+            { name: "Epsom College In Malaysia", logo: "https://myheart.my/wp-content/uploads/elementor/thumbs/1-4-e1715608959160-r1e474la50s4rawfuuv085s5vyfs8c5ri4hjdqm34s.png", tag: "rep", incentive: "100% waiver of Enrolment Fees (Up to RM20,000)" },
+            { name: "Garden International School", logo: "https://myheart.my/wp-content/uploads/elementor/thumbs/22-e1726985700460-r1e47yo5jykrcdl52c9ndti3m4np73u5wed59vpyos.png", tag: "rep", incentive: "100% Registration fee waiver" },
+            { name: "HELP International School", logo: "https://myheart.my/wp-content/uploads/elementor/thumbs/Help-r1e47p9q2lt5j4fnmbmkbssmqyrj7bspqlx6pjnzbo.png", tag: "non-rep", incentive: "50-75% Discount on Registration Fee" },
+            { name: "Mont 'Kiara International School", logo: "https://myheart.my/wp-content/uploads/elementor/thumbs/montkiara-international-school-rjy2s66xzbdyafra73c13qbmn33d8v89ca85hw0pn0.png", tag: "rep", incentive: "100% waiver of Admissions Fee" },
+            { name: "Nexus International School", logo: "https://myheart.my/wp-content/uploads/elementor/thumbs/nexus-r1dyt8ft3mmcjv163qyp1h06ypkivj5rhfe820gz8c.png", tag: "rep", incentive: "100% waiver of registration fee (up to RM20,000)" },
+            { name: "Sri KDU International School", logo: "https://myheart.my/wp-content/uploads/elementor/thumbs/24-e1726985864915-r1e482fhkzgdxyy0eokxieqxlkopmdid9xiopx71ek.png", tag: "rep", incentive: "100% rebate + 15% discount on tuition" },
+            { name: "Taylor's International School (Kuala Lumpur)", logo: "https://myheart.my/wp-content/uploads/elementor/thumbs/MyHeart-CaFe-2-e1728493272837-r1dydp5umqv34fxbuo35rhc9rug3lyzabuv95r34gs.png", tag: "rep", incentive: "100% waiver of Registration Fee (up to RM6,000)" }
+        ];
+        const descriptions = { "Garden International School": "Leading IB & IGCSE school.", "HELP International School": "Innovative learning with international curriculum." };
+
+        let currentFilter = "all", searchTerm = "";
+        function getBadgeHtml(tag) { return tag === "rep" ? `<span class="badge rep">REP Partner</span>` : ''; }
+        function renderSchools() {
+            let filtered = schoolsData.filter(s => (currentFilter === "all" || s.tag === currentFilter) && (!searchTerm || s.name.toLowerCase().includes(searchTerm.toLowerCase())));
+            const container = document.getElementById("schoolsContainer"), emptyDiv = document.getElementById("emptyMessage"), resultSpan = document.getElementById("resultCount");
+            resultSpan.innerText = filtered.length;
+            if (filtered.length === 0) { container.style.display = "none"; emptyDiv.style.display = "block"; return; }
+            container.style.display = "grid"; emptyDiv.style.display = "none";
+            container.innerHTML = filtered.map(school => `<div class="school-card"><div class="card-logo"><img src="${school.logo}" alt="${school.name}"></div><div class="card-content"><div class="school-name">${school.name}</div>${getBadgeHtml(school.tag) ? `<div class="badge-group">${getBadgeHtml(school.tag)}</div>` : ''}<div class="desc">${descriptions[school.name] || "Partner school with special incentives."}</div><div class="button-wrapper"><button class="btn-incentive" data-incentive="${school.incentive}" data-name="${school.name}"><i class="fas fa-sparkles"></i> View Incentives <i class="fas fa-arrow-right"></i></button></div></div></div>`).join('');
+            document.querySelectorAll('.btn-incentive').forEach(btn => btn.addEventListener('click', () => { document.getElementById('modalSchoolName').innerText = btn.dataset.name; document.getElementById('modalIncentiveContent').innerHTML = `<i class="fas fa-gem"></i> ${btn.dataset.incentive}`; document.getElementById('incentiveModal').style.display = 'flex'; }));
+        }
+        document.getElementById('searchInput').addEventListener('input', (e) => { searchTerm = e.target.value; renderSchools(); });
+        document.querySelectorAll('.tag-btn').forEach(btn => btn.addEventListener('click', () => { document.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); currentFilter = btn.dataset.filter; renderSchools(); }));
+        function closeModal() { document.getElementById('incentiveModal').style.display = 'none'; }
+        document.getElementById('closeModalBtn').addEventListener('click', closeModal);
+        document.getElementById('modalKnowMoreBtn').addEventListener('click', () => window.open('https://myheart.my/contact-us/', '_blank'));
+        document.getElementById('incentiveModal').addEventListener('click', (e) => { if (e.target === document.getElementById('incentiveModal')) closeModal(); });
+        renderSchools();
+
+        // Countdown
+        function getDaysLeft(target) { return Math.ceil((new Date(target) - new Date()) / (1000 * 60 * 60 * 24)); }
+        function updateCountdowns() { document.getElementById('days1').innerText = getDaysLeft('2026-06-17'); document.getElementById('days2').innerText = getDaysLeft('2026-06-17'); document.getElementById('days3').innerText = getDaysLeft('2026-06-17'); }
+        updateCountdowns(); setInterval(updateCountdowns, 3600000);
+
+        // Swiper & Floating Widget
+        let eventSwiper = null;
+        function initSwiper() { if (eventSwiper) eventSwiper.destroy(); eventSwiper = new Swiper('.eventSwiper', { loop: true, autoplay: { delay: 5000 }, pagination: { el: '.swiper-pagination', clickable: true }, navigation: { nextEl: '.swiper-button-next-custom', prevEl: '.swiper-button-prev-custom' } }); }
+        const floatingWidget = document.getElementById('floatingWidget'), widgetPill = document.getElementById('widgetPill'), widgetExpanded = document.getElementById('widgetExpanded'), closeExpandedBtn = document.getElementById('closeExpandedBtn'), expandedHeader = document.getElementById('expandedHeader');
+        let isWidgetVisible = false, isExpanded = false;
+        gsap.set(floatingWidget, { visibility: 'hidden', opacity: 0, x: 50 });
+        ScrollTrigger.create({ trigger: "body", start: "top+=200px", onEnter: () => { if (!isWidgetVisible) { isWidgetVisible = true; floatingWidget.style.visibility = 'visible'; gsap.to(floatingWidget, { opacity: 1, x: 0, duration: 0.5 }); } }, once: true });
+        ScrollTrigger.create({ trigger: "#contentSection", start: "top+=80px", onEnter: () => { if (isWidgetVisible && !isExpanded) expandWidget(); }, onEnterBack: () => { if (isWidgetVisible && !isExpanded) expandWidget(); } });
+        function expandWidget() { if (isExpanded) return; floatingWidget.classList.remove('minimized'); floatingWidget.classList.add('maximized'); isExpanded = true; setTimeout(() => { if (eventSwiper) eventSwiper.update(); else initSwiper(); }, 100); }
+        function collapseToPill() { if (!isExpanded) return; floatingWidget.classList.remove('maximized'); floatingWidget.classList.add('minimized'); isExpanded = false; }
+        widgetPill.addEventListener('click', expandWidget);
+        closeExpandedBtn.addEventListener('click', (e) => { e.stopPropagation(); collapseToPill(); });
+        expandedHeader.addEventListener('click', (e) => { if (e.target === closeExpandedBtn) return; collapseToPill(); });
+        document.querySelectorAll('.rsvp-event-btn').forEach(btn => btn.addEventListener('click', () => window.open(btn.dataset.eventLink, '_blank')));
+        setTimeout(() => { if (!eventSwiper) initSwiper(); }, 500);
+
+        // Back to Top Button
+        const backBtn = document.getElementById('backToTopBtn');
+        window.addEventListener('scroll', () => { backBtn.classList.toggle('show', window.scrollY > 300); });
+        backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        // Mobile toggle
+        document.getElementById('mobile-toggle').addEventListener('click', () => document.getElementById('main-nav').classList.toggle('open'));
+    </script>
+</body>
+</html>
