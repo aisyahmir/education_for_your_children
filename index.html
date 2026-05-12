@@ -11,11 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Roboto:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- GSAP Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
+    </script>
     <!-- Swiper JS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js">
+    </script>
     <style>
         * {
             margin: 0;
@@ -546,7 +549,7 @@
             display: flex;
             flex-direction: column;
             height: 100%;
-            min-height: 380px;
+            min-height: 300px;
             position: relative;
         }
         .special-card.blue-gradient {
@@ -560,7 +563,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 30% 20%, rgba(255,213,61,0.1) 0%, transparent 70%);
+            background: radial-gradient(circle at 30% 20%, rgba(255, 213, 61, 0.1) 0%, transparent 70%);
             pointer-events: none;
         }
         .special-card .card-content {
@@ -584,7 +587,7 @@
         }
         .special-card .invite-subtitle {
             font-size: 1rem;
-            color: rgba(255,255,255,0.9);
+            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 2rem;
             max-width: 280px;
             margin-left: auto;
@@ -638,6 +641,9 @@
                 min-width: 180px;
                 font-size: 0.9rem;
             }
+            .special-card {
+                min-height: 260px;
+            }
         }
 
         .empty-state {
@@ -657,10 +663,18 @@
             z-index: 1000;
             cursor: pointer;
         }
-        .floating-widget.minimized .widget-pill { display: flex; }
-        .floating-widget.minimized .widget-expanded { display: none; }
-        .floating-widget.maximized .widget-pill { display: none; }
-        .floating-widget.maximized .widget-expanded { display: block; }
+        .floating-widget.minimized .widget-pill {
+            display: flex;
+        }
+        .floating-widget.minimized .widget-expanded {
+            display: none;
+        }
+        .floating-widget.maximized .widget-pill {
+            display: none;
+        }
+        .floating-widget.maximized .widget-expanded {
+            display: block;
+        }
         .widget-pill {
             background: linear-gradient(135deg, #22205f 0%, #692047 100%);
             border-radius: 40px 0 0 40px;
@@ -709,8 +723,14 @@
             animation: slideInRight 0.3s ease;
         }
         @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
         .expanded-header {
             background: linear-gradient(135deg, #22205f 0%, #692047 100%);
@@ -744,11 +764,24 @@
             background: #c52028;
             transform: scale(1.05);
         }
-        .event-carousel { position: relative; }
-        .swiper { width: 100%; height: auto; }
-        .swiper-slide { background: white; }
-        .event-banner-img { width: 100%; height: 160px; object-fit: cover; }
-        .event-slide-content { padding: 16px 20px 20px; }
+        .event-carousel {
+            position: relative;
+        }
+        .swiper {
+            width: 100%;
+            height: auto;
+        }
+        .swiper-slide {
+            background: white;
+        }
+        .event-banner-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+        .event-slide-content {
+            padding: 16px 20px 20px;
+        }
         .event-title {
             font-size: 1.2rem;
             font-weight: 800;
@@ -798,7 +831,8 @@
             background: linear-gradient(95deg, #22205f, #692047);
             transform: translateY(-2px);
         }
-        .swiper-button-prev-custom, .swiper-button-next-custom {
+        .swiper-button-prev-custom,
+        .swiper-button-next-custom {
             position: absolute;
             top: 85px;
             width: 32px;
@@ -813,10 +847,18 @@
             color: white;
             font-size: 14px;
         }
-        .swiper-button-prev-custom { left: 12px; }
-        .swiper-button-next-custom { right: 12px; }
-        .swiper-pagination { bottom: 8px !important; }
-        .swiper-pagination-bullet-active { background: #c52028 !important; }
+        .swiper-button-prev-custom {
+            left: 12px;
+        }
+        .swiper-button-next-custom {
+            right: 12px;
+        }
+        .swiper-pagination {
+            bottom: 8px !important;
+        }
+        .swiper-pagination-bullet-active {
+            background: #c52028 !important;
+        }
 
         /* Modal Popup */
         .incentive-modal {
@@ -1164,43 +1206,119 @@
         }
 
         @media (max-width: 1200px) {
-            .schools-grid { grid-template-columns: repeat(3, 1fr); }
-            .footer-note { white-space: normal; }
-            .talentcorp-sub { white-space: normal; text-align: center; }
-            .talentcorp-logo { text-align: center; }
+            .schools-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .footer-note {
+                white-space: normal;
+            }
+            .talentcorp-sub {
+                white-space: normal;
+                text-align: center;
+            }
+            .talentcorp-logo {
+                text-align: center;
+            }
         }
         @media (max-width: 1024px) {
-            .site-footer { padding: 50px 30px; }
-            .footer-col { flex: 0 0 25%; max-width: 25%; }
-            .join-title { font-size: 40px; line-height: 49px; }
-            .join-subtitle { font-size: 16px; }
+            .site-footer {
+                padding: 50px 30px;
+            }
+            .footer-col {
+                flex: 0 0 25%;
+                max-width: 25%;
+            }
+            .join-title {
+                font-size: 40px;
+                line-height: 49px;
+            }
+            .join-subtitle {
+                font-size: 16px;
+            }
         }
         @media (max-width: 900px) {
-            .schools-grid { grid-template-columns: repeat(2, 1fr); }
+            .schools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
         @media (max-width: 768px) {
-            .banner-title { font-size: 32px; }
-            .hub-title { font-size: 1.8rem; }
-            .filter-panel { flex-direction: column; align-items: stretch; }
-            .modern-edu-wrapper { padding: 32px 20px 48px 20px; }
-            .join-title { font-size: 30px; line-height: 32px; }
-            .join-subtitle { font-size: 15px; }
-            .floating-widget { right: 0; top: auto; bottom: 20px; transform: none; }
-            .widget-pill { flex-direction: row; border-radius: 40px; padding: 12px 20px; }
-            .pill-arrow { transform: rotate(0deg); }
-            .footer-col { flex: 0 0 50%; max-width: 50%; margin-bottom: 20px; }
-            .site-footer { padding: 30px 20px; }
-            .talentcorp-logo { text-align: center; }
-            .talentcorp-logo img { width: 70%; }
-            .talentcorp-sub { text-align: center; white-space: normal; }
-            .footer-note { white-space: normal; }
-            .newsletter-label { white-space: normal; }
-            .newsletter-bar form { flex-direction: column; }
-            .newsletter-email { width: 90%; max-width: 280px; }
-            .back-to-top { bottom: 20px; right: 20px; width: 45px; height: 45px; font-size: 18px; }
+            .banner-title {
+                font-size: 32px;
+            }
+            .hub-title {
+                font-size: 1.8rem;
+            }
+            .filter-panel {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .modern-edu-wrapper {
+                padding: 32px 20px 48px 20px;
+            }
+            .join-title {
+                font-size: 30px;
+                line-height: 32px;
+            }
+            .join-subtitle {
+                font-size: 15px;
+            }
+            .floating-widget {
+                right: 0;
+                top: auto;
+                bottom: 20px;
+                transform: none;
+            }
+            .widget-pill {
+                flex-direction: row;
+                border-radius: 40px;
+                padding: 12px 20px;
+            }
+            .pill-arrow {
+                transform: rotate(0deg);
+            }
+            .footer-col {
+                flex: 0 0 50%;
+                max-width: 50%;
+                margin-bottom: 20px;
+            }
+            .site-footer {
+                padding: 30px 20px;
+            }
+            .talentcorp-logo {
+                text-align: center;
+            }
+            .talentcorp-logo img {
+                width: 70%;
+            }
+            .talentcorp-sub {
+                text-align: center;
+                white-space: normal;
+            }
+            .footer-note {
+                white-space: normal;
+            }
+            .newsletter-label {
+                white-space: normal;
+            }
+            .newsletter-bar form {
+                flex-direction: column;
+            }
+            .newsletter-email {
+                width: 90%;
+                max-width: 280px;
+            }
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
         }
         @media (max-width: 480px) {
-            .schools-grid { grid-template-columns: 1fr; }
+            .schools-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -1239,7 +1357,7 @@
             <div class="hub-title">A leading education hub <span>in the region</span></div>
             <div class="hub-description">Boasting a strong network of prestigious universities and colleges, a plethora of world-class private and international schools as well as a wide range of curriculums, Malaysia has one of the most advanced education systems in Southeast Asia, which attracts hundreds of thousands of students from all over the world annually.</div>
             <div class="hub-subtext">As such, we have forged partnerships with a wide assortment of education institutions in Malaysia to facilitate your return home to Malaysia with your family.</div>
-            <a href="https://myheart.my/app/user/register" class="hub-cta" target="_blank">Join MyHeart <i class="fas fa-arrow-right"></i></a>
+            <a href="https://myheart.my/app/school/register" class="hub-cta" target="_blank">Register Your School <i class="fas fa-arrow-right"></i></a>
         </div>
 
         <div class="filter-panel">
@@ -1251,25 +1369,8 @@
             <div class="results-stats" id="resultsStats">Showing <span id="resultCount">0</span> schools</div>
         </div>
 
-        <!-- Dynamic Schools Grid -->
+        <!-- Dynamic Schools Grid (special card appended automatically at the end) -->
         <div id="schoolsContainer" class="schools-grid"></div>
-
-        <!-- Special Card: Calling all schools -->
-        <div class="schools-grid" style="margin-top: 2rem;">
-            <div class="special-card blue-gradient">
-                <div class="card-content">
-                    <div class="card-header">
-                        <h3>Calling all schools in Malaysia</h3>
-                        <div class="invite-subtitle">Join the MyHeart network & reach Malaysians abroad</div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://myheart.my/app/school/register" target="_blank" class="connect-btn">
-                            Register Your School <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div id="emptyMessage" style="display: none;" class="empty-state"><i class="fas fa-school-circle-exclamation"></i><h3>No matching schools found</h3><p>Try adjusting your search or filter criteria.</p></div>
     </div>
@@ -1318,7 +1419,7 @@
             <div class="join-content">
                 <div class="join-title">Join MyHeart today!</div>
                 <div class="join-subtitle">Get started on your journey to connecting with fellow Malaysians around the world!</div>
-                <a href="https://myheart.my/app/user/register" class="elementor-button" target="_blank">Register here</a>
+                <a href="https://myheart.my/app/user/register" class="elementor-button" target="_blank">Join MyHeart</a>
             </div>
         </div>
     </section>
@@ -1384,9 +1485,9 @@
     <button class="back-to-top" id="backToTopBtn" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
 
     <script>
-        // Schools data (unchanged)
+        // Schools data
         const schoolsData = [
-            { name: "Australian International School Malaysia", logo: "https://myheart.my/wp-content/uploads/elementor/thumbs/AISM-r1e4c52kxz9kp8e5yjw20ckoj0iqhzwz4yva1me1rc.png", tag: "rep", incentive: "100% waiver of Admissions Fee (up to RM20,000)" },
+            { name: "Australian International School Malaysia", logo: "https://myheart.my/wp-content/uploads/elementor/thumbs/AISM-r1e4c52kxz9kp8e5yjw20ckoj0iqhzwz4yva1me1pc.png", tag: "rep", incentive: "100% waiver of Admissions Fee (up to RM20,000)" },
             { name: "Epsom College In Malaysia", logo: "https://myheart.my/wp-content/uploads/elementor/thumbs/1-4-e1715608959160-r1e474la50s4rawfuuv085s5vyfs8c5ri4hjdqm34s.png", tag: "rep", incentive: "100% waiver of Enrolment Fees (Up to RM20,000)" },
             { name: "Garden International School", logo: "https://myheart.my/wp-content/uploads/elementor/thumbs/22-e1726985700460-r1e47yo5jykrcdl52c9ndti3m4np73u5wed59vpyos.png", tag: "rep", incentive: "100% Registration fee waiver" },
             { name: "HELP International School", logo: "https://myheart.my/wp-content/uploads/elementor/thumbs/Help-r1e47p9q2lt5j4fnmbmkbssmqyrj7bspqlx6pjnzbo.png", tag: "non-rep", incentive: "50-75% Discount on Registration Fee" },
@@ -1397,52 +1498,161 @@
         ];
         const descriptions = { "Garden International School": "Leading IB & IGCSE school.", "HELP International School": "Innovative learning with international curriculum." };
 
-        let currentFilter = "all", searchTerm = "";
+        let currentFilter = "all",
+            searchTerm = "";
+
         function getBadgeHtml(tag) { return tag === "rep" ? `<span class="badge rep">REP Partner</span>` : ''; }
-        function renderSchools() {
-            let filtered = schoolsData.filter(s => (currentFilter === "all" || s.tag === currentFilter) && (!searchTerm || s.name.toLowerCase().includes(searchTerm.toLowerCase())));
-            const container = document.getElementById("schoolsContainer"), emptyDiv = document.getElementById("emptyMessage"), resultSpan = document.getElementById("resultCount");
-            resultSpan.innerText = filtered.length;
-            if (filtered.length === 0) { container.style.display = "none"; emptyDiv.style.display = "block"; return; }
-            container.style.display = "grid"; emptyDiv.style.display = "none";
-            container.innerHTML = filtered.map(school => `<div class="school-card"><div class="card-logo"><img src="${school.logo}" alt="${school.name}"></div><div class="card-content"><div class="school-name">${school.name}</div>${getBadgeHtml(school.tag) ? `<div class="badge-group">${getBadgeHtml(school.tag)}</div>` : ''}<div class="desc">${descriptions[school.name] || "Partner school with special incentives."}</div><div class="button-wrapper"><button class="btn-incentive" data-incentive="${school.incentive}" data-name="${school.name}"><i class="fas fa-sparkles"></i> View Incentives <i class="fas fa-arrow-right"></i></button></div></div></div>`).join('');
-            document.querySelectorAll('.btn-incentive').forEach(btn => btn.addEventListener('click', () => { document.getElementById('modalSchoolName').innerText = btn.dataset.name; document.getElementById('modalIncentiveContent').innerHTML = `<i class="fas fa-gem"></i> ${btn.dataset.incentive}`; document.getElementById('incentiveModal').style.display = 'flex'; }));
+
+        // Special card HTML - appended at the end of every schools list
+        function getSpecialCardHtml() {
+            return `
+            <div class="special-card blue-gradient">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3>Calling all schools in Malaysia</h3>
+                        <div class="invite-subtitle">Join the MyHeart network & reach Malaysians abroad</div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://myheart.my/app/school/register" target="_blank" class="connect-btn">
+                            Register Your School <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>`;
         }
-        document.getElementById('searchInput').addEventListener('input', (e) => { searchTerm = e.target.value; renderSchools(); });
-        document.querySelectorAll('.tag-btn').forEach(btn => btn.addEventListener('click', () => { document.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); currentFilter = btn.dataset.filter; renderSchools(); }));
+
+        function renderSchools() {
+            let filtered = schoolsData.filter(s => (currentFilter === "all" || s.tag === currentFilter) && (!searchTerm || s.name
+                .toLowerCase().includes(searchTerm.toLowerCase())));
+            const container = document.getElementById("schoolsContainer"),
+                emptyDiv = document.getElementById("emptyMessage"),
+                resultSpan = document.getElementById("resultCount");
+            resultSpan.innerText = filtered.length;
+
+            // Build school cards
+            let schoolsHtml = filtered.map(school => `
+                <div class="school-card">
+                    <div class="card-logo"><img src="${school.logo}" alt="${school.name}"></div>
+                    <div class="card-content">
+                        <div class="school-name">${school.name}</div>
+                        ${getBadgeHtml(school.tag) ? `<div class="badge-group">${getBadgeHtml(school.tag)}</div>` : ''}
+                        <div class="desc">${descriptions[school.name] || "Partner school with special incentives."}</div>
+                        <div class="button-wrapper">
+                            <button class="btn-incentive" data-incentive="${school.incentive}" data-name="${school.name}">
+                                <i class="fas fa-sparkles"></i> View Incentives <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>`).join('');
+
+            // Always append the special card at the end
+            const specialCardHtml = getSpecialCardHtml();
+
+            if (filtered.length === 0) {
+                // No schools match - show grid with special card spanning full width, plus empty message
+                container.style.display = "grid";
+                container.style.gridTemplateColumns = "1fr"; // full-width for special card when alone
+                container.innerHTML = specialCardHtml;
+                emptyDiv.style.display = "block";
+            } else {
+                // Show schools + special card in normal grid
+                container.style.display = "grid";
+                container.style.gridTemplateColumns = ""; // reset to CSS default (4 columns)
+                emptyDiv.style.display = "none";
+                container.innerHTML = schoolsHtml + specialCardHtml;
+            }
+
+            // Re-attach incentive button listeners
+            document.querySelectorAll('.btn-incentive').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.getElementById('modalSchoolName').innerText = btn.dataset.name;
+                    document.getElementById('modalIncentiveContent').innerHTML =
+                        `<i class="fas fa-gem"></i> ${btn.dataset.incentive}`;
+                    document.getElementById('incentiveModal').style.display = 'flex';
+                });
+            });
+        }
+
+        // Search & filter event listeners
+        document.getElementById('searchInput').addEventListener('input', (e) => { searchTerm = e.target.value;
+            renderSchools(); });
+        document.querySelectorAll('.tag-btn').forEach(btn => btn.addEventListener('click', () => {
+            document.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentFilter = btn.dataset.filter;
+            renderSchools();
+        }));
+
+        // Modal
         function closeModal() { document.getElementById('incentiveModal').style.display = 'none'; }
         document.getElementById('closeModalBtn').addEventListener('click', closeModal);
-        document.getElementById('modalKnowMoreBtn').addEventListener('click', () => window.open('https://myheart.my/contact-us/', '_blank'));
-        document.getElementById('incentiveModal').addEventListener('click', (e) => { if (e.target === document.getElementById('incentiveModal')) closeModal(); });
+        document.getElementById('modalKnowMoreBtn').addEventListener('click', () => window.open(
+            'https://myheart.my/contact-us/', '_blank'));
+        document.getElementById('incentiveModal').addEventListener('click', (e) => { if (e.target === document.getElementById(
+                'incentiveModal')) closeModal(); });
+
+        // Initial render
         renderSchools();
 
         // Countdown
         function getDaysLeft(target) { return Math.ceil((new Date(target) - new Date()) / (1000 * 60 * 60 * 24)); }
-        function updateCountdowns() { document.getElementById('days1').innerText = getDaysLeft('2026-06-17'); document.getElementById('days2').innerText = getDaysLeft('2026-06-17'); document.getElementById('days3').innerText = getDaysLeft('2026-06-17'); }
-        updateCountdowns(); setInterval(updateCountdowns, 3600000);
+
+        function updateCountdowns() { document.getElementById('days1').innerText = getDaysLeft('2026-06-17');
+            document.getElementById('days2').innerText = getDaysLeft('2026-06-17');
+            document.getElementById('days3').innerText = getDaysLeft('2026-06-17'); }
+        updateCountdowns();
+        setInterval(updateCountdowns, 3600000);
 
         // Swiper & Floating Widget
         let eventSwiper = null;
-        function initSwiper() { if (eventSwiper) eventSwiper.destroy(); eventSwiper = new Swiper('.eventSwiper', { loop: true, autoplay: { delay: 5000 }, pagination: { el: '.swiper-pagination', clickable: true }, navigation: { nextEl: '.swiper-button-next-custom', prevEl: '.swiper-button-prev-custom' } }); }
-        const floatingWidget = document.getElementById('floatingWidget'), widgetPill = document.getElementById('widgetPill'), widgetExpanded = document.getElementById('widgetExpanded'), closeExpandedBtn = document.getElementById('closeExpandedBtn'), expandedHeader = document.getElementById('expandedHeader');
-        let isWidgetVisible = false, isExpanded = false;
+
+        function initSwiper() { if (eventSwiper) eventSwiper.destroy();
+            eventSwiper = new Swiper('.eventSwiper', { loop: true, autoplay: { delay: 5000 }, pagination: { el: '.swiper-pagination',
+                    clickable: true }, navigation: { nextEl: '.swiper-button-next-custom',
+                    prevEl: '.swiper-button-prev-custom' } }); }
+        const floatingWidget = document.getElementById('floatingWidget'),
+            widgetPill = document.getElementById('widgetPill'),
+            widgetExpanded = document.getElementById('widgetExpanded'),
+            closeExpandedBtn = document.getElementById('closeExpandedBtn'),
+            expandedHeader = document.getElementById('expandedHeader');
+        let isWidgetVisible = false,
+            isExpanded = false;
         gsap.set(floatingWidget, { visibility: 'hidden', opacity: 0, x: 50 });
-        ScrollTrigger.create({ trigger: "body", start: "top+=200px", onEnter: () => { if (!isWidgetVisible) { isWidgetVisible = true; floatingWidget.style.visibility = 'visible'; gsap.to(floatingWidget, { opacity: 1, x: 0, duration: 0.5 }); } }, once: true });
-        ScrollTrigger.create({ trigger: "#contentSection", start: "top+=80px", onEnter: () => { if (isWidgetVisible && !isExpanded) expandWidget(); }, onEnterBack: () => { if (isWidgetVisible && !isExpanded) expandWidget(); } });
-        function expandWidget() { if (isExpanded) return; floatingWidget.classList.remove('minimized'); floatingWidget.classList.add('maximized'); isExpanded = true; setTimeout(() => { if (eventSwiper) eventSwiper.update(); else initSwiper(); }, 100); }
-        function collapseToPill() { if (!isExpanded) return; floatingWidget.classList.remove('maximized'); floatingWidget.classList.add('minimized'); isExpanded = false; }
+        ScrollTrigger.create({ trigger: "body", start: "top+=200px", onEnter: () => { if (!isWidgetVisible) {
+                    isWidgetVisible = true;
+                    floatingWidget.style.visibility = 'visible';
+                    gsap.to(floatingWidget, { opacity: 1, x: 0, duration: 0.5 }); } }, once: true });
+        ScrollTrigger.create({ trigger: "#contentSection", start: "top+=80px", onEnter: () => { if (isWidgetVisible && !
+                    isExpanded) expandWidget(); }, onEnterBack: () => { if (isWidgetVisible && !isExpanded)
+                expandWidget(); } });
+
+        function expandWidget() { if (isExpanded) return;
+            floatingWidget.classList.remove('minimized');
+            floatingWidget.classList.add('maximized');
+            isExpanded = true;
+            setTimeout(() => { if (eventSwiper) eventSwiper.update(); else initSwiper(); }, 100); }
+
+        function collapseToPill() { if (!isExpanded) return;
+            floatingWidget.classList.remove('maximized');
+            floatingWidget.classList.add('minimized');
+            isExpanded = false; }
         widgetPill.addEventListener('click', expandWidget);
-        closeExpandedBtn.addEventListener('click', (e) => { e.stopPropagation(); collapseToPill(); });
-        expandedHeader.addEventListener('click', (e) => { if (e.target === closeExpandedBtn) return; collapseToPill(); });
-        document.querySelectorAll('.rsvp-event-btn').forEach(btn => btn.addEventListener('click', () => window.open(btn.dataset.eventLink, '_blank')));
+        closeExpandedBtn.addEventListener('click', (e) => { e.stopPropagation();
+            collapseToPill(); });
+        expandedHeader.addEventListener('click', (e) => { if (e.target === closeExpandedBtn) return;
+            collapseToPill(); });
+        document.querySelectorAll('.rsvp-event-btn').forEach(btn => btn.addEventListener('click', () => window.open(btn
+            .dataset.eventLink, '_blank')));
         setTimeout(() => { if (!eventSwiper) initSwiper(); }, 500);
 
         // Back to Top Button
         const backBtn = document.getElementById('backToTopBtn');
         window.addEventListener('scroll', () => { backBtn.classList.toggle('show', window.scrollY > 300); });
         backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
         // Mobile toggle
-        document.getElementById('mobile-toggle').addEventListener('click', () => document.getElementById('main-nav').classList.toggle('open'));
+        document.getElementById('mobile-toggle').addEventListener('click', () => document.getElementById('main-nav')
+            .classList.toggle('open'));
     </script>
 </body>
 </html>
