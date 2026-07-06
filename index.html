@@ -250,53 +250,71 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header from header.html -->
     <header class="site-header">
         <div class="header-container">
+            <!-- Logo -->
             <div class="logo">
                 <a href="https://myheart.my">
-                    <img src="https://myheart.my/wp-content/uploads/2023/02/MYHeart-BI.png" alt="MyHeart">
+                    <img src="https://myheart.my/wp-content/uploads/2023/02/MYHeart-BI.png" alt="MyHeart Portal" width="960" height="216">
                 </a>
             </div>
+
+            <!-- Mobile toggle icon -->
             <div class="mobile-toggle" id="mobile-toggle">
                 <i class="fas fa-bars"></i>
             </div>
+            
+    <!-- Main navigation + login button -->
             <div class="main-nav" id="main-nav">
                 <ul class="nav-menu">
+                    <!-- About with dropdown -->
                     <li class="menu-item-has-children">
                         <a href="#">About</a>
                         <ul class="sub-menu">
                             <li><a href="https://myheart.my/about-myheart/">About MyHeart</a></li>
+                            <li><a href="https://myheart.my/publication/">Publication</a></li>
+                            <li><a href="https://myheart.my/newsletter/">Newsletter</a></li>
                             <li><a href="https://myheart.my/contact-us/">Contact Us</a></li>
                             <li><a href="https://myheart.my/faq/">FAQ</a></li>
                         </ul>
                     </li>
+                    <!-- Member Benefits (single) -->
                     <li><a href="https://myheart.my/member-benefits/">Member Benefits</a></li>
+                    <!-- Living Abroad with dropdown -->
                     <li class="menu-item-has-children">
-                        <a href="#">Living Abroad</a>
+                        <a href="#" class="active">Living Abroad</a>
                         <ul class="sub-menu">
-                            <li><a href="https://myheart.my/network-and-connect/">Network and Connect</a></li>
+                            <li><a href="https://myheart.my/network-and-connect/" class="active">Network and Connect</a></li>
                             <li><a href="https://myheart.my/events/">Events</a></li>
+                            <li><a href="https://myheart.my/collaboration/">Collaboration</a></li>
                             <li><a href="https://myheart.my/stories/">MyHeart Stories</a></li>
+                            <li><a href="https://myheart.my/malaysian-embassies-abroad/">Malaysian Embassies Abroad</a></li>
                         </ul>
                     </li>
+                    <!-- Studying Abroad with dropdown -->
                     <li class="menu-item-has-children">
                         <a href="#">Studying Abroad</a>
                         <ul class="sub-menu">
                             <li><a href="https://myheart.my/young-global-leader/">Young Global Leader</a></li>
                             <li><a href="https://myheart.my/cherita-kita/">Cherita Kita</a></li>
+                            <li><a href="https://www.mynext.my/talent?utm_source=Google+Search&utm_medium=Click&utm_campaign=MyNext_Oct24&utm_content=MN2.Talent+Brand+-+CLK+RSA+%28SEM%29&gad_source=1&gclid=Cj0KCQjw2N2_BhCAARIsAK4pEkUPB6qha9JrT565-UwIBzGZZ5DD5XOVsesAHDISgFPCWYONcxpC-oEaAtQgEALw_wcB">Internship in Malaysia</a></li>
                         </ul>
                     </li>
+                    <!-- Returning to Malaysia with dropdown -->
                     <li class="menu-item-has-children">
-                        <a href="#" class="active">Returning to Malaysia</a>
+                        <a href="#">Returning to Malaysia</a>
                         <ul class="sub-menu">
                             <li><a href="https://myheart.my/rep/">Returning Expert Programme</a></li>
+                            <li><a href="https://myheart.my/rep-returnee-stories/">REP Returnee Stories</a></li>
                             <li><a href="https://myheart.my/work-in-malaysia/">Work in Malaysia</a></li>
+                            <li><a href="https://myheart.my/myheart-innovate/">MyHeart Innovate</a></li>
                             <li><a href="https://myheart.my/start-your-business-in-malaysia/">Start Your Business</a></li>
-                            <li><a href="https://myheart.my/education-for-your-children/" class="active">Education for Your Children</a></li>
+                            <li><a href="https://myheart.my/education-for-your-children/">Education for Your Children</a></li>
                         </ul>
                     </li>
                 </ul>
+                <!-- Register/Login button -->
                 <a href="https://myheart.my/my-account" class="btn-login">Register/Login</a>
             </div>
         </div>
@@ -337,13 +355,13 @@
     </div>
 
     <!-- Floating Widget -->
-    <div class="floating-widget minimized" id="floatingWidget">
+    <!-- <div class="floating-widget minimized" id="floatingWidget">
         <div class="widget-pill" id="widgetPill"><div class="pill-icon"><i class="fas fa-calendar-alt"></i></div><div class="pill-text">Upcoming<br>Event</div><div class="pill-arrow"><i class="fas fa-chevron-right"></i></div></div>
         <div class="widget-expanded" id="widgetExpanded">
             <div class="expanded-header" id="expandedHeader"><h4><i class="fas fa-calendar-star"></i> Upcoming Event</h4><button class="close-expanded" id="closeExpandedBtn"><i class="fas fa-times"></i></button></div>
             <div class="event-carousel"><div class="swiper eventSwiper"><div class="swiper-wrapper"><div class="swiper-slide"><img class="event-banner-img" src="https://myheart.my/wp-content/uploads/2023/06/School-Education-scaled.jpg"><div class="event-slide-content"><div class="event-title">MyHeart Education Fair 2026</div><div class="event-date-location"><span><i class="fas fa-calendar-alt"></i> 17 June 2026</span><span><i class="fas fa-map-marker-alt"></i> KL Convention Centre</span></div><div class="countdown-box"><div class="countdown-number" id="days1">--</div><div class="countdown-text">days to go</div></div><button class="rsvp-event-btn" data-event-link="https://myheart.my/events/education-fair-2026">Reserve Spot <i class="fas fa-arrow-right"></i></button></div></div><div class="swiper-slide"><img class="event-banner-img" src="https://myheart.my/wp-content/uploads/2024/09/School-2.jpg"><div class="event-slide-content"><div class="event-title">International School Open Day 2026</div><div class="event-date-location"><span><i class="fas fa-calendar-alt"></i> 17 June 2026</span><span><i class="fas fa-map-marker-alt"></i> Mont Kiara, KL</span></div><div class="countdown-box"><div class="countdown-number" id="days2">--</div><div class="countdown-text">days to go</div></div><button class="rsvp-event-btn" data-event-link="https://myheart.my/events/open-day-june-2026">Reserve Spot <i class="fas fa-arrow-right"></i></button></div></div><div class="swiper-slide"><img class="event-banner-img" src="https://myheart.my/wp-content/uploads/2024/09/a1c2m0MfuYN3Ifft9Dx6BBNJJon3Pq.jpeg"><div class="event-slide-content"><div class="event-title">Year-End Education Webinar 2026</div><div class="event-date-location"><span><i class="fas fa-calendar-alt"></i> 17 June 2026</span><span><i class="fas fa-map-marker-alt"></i> Online (Zoom)</span></div><div class="countdown-box"><div class="countdown-number" id="days3">--</div><div class="countdown-text">days to go</div></div><button class="rsvp-event-btn" data-event-link="https://myheart.my/events/education-webinar-2026">Reserve Spot <i class="fas fa-arrow-right"></i></button></div></div></div><div class="swiper-button-prev-custom"><i class="fas fa-chevron-left"></i></div><div class="swiper-button-next-custom"><i class="fas fa-chevron-right"></i></div><div class="swiper-pagination"></div></div></div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Join MyHeart Section -->
     <section class="join-myheart-section">
@@ -391,7 +409,7 @@
     <script>
         // Schools Data
         const schoolsData = [
-            { name: "Asia Pacific International School", logo: "https://myheart.my/wp-content/uploads/2026/06/APIS-logo-School.png", tag: "rep", incentives: ["Application and Registration fee rebate"] },
+            { name: "Asia Pacific International School", logo: "https://myheart.my/wp-content/uploads/2026/07/Asia-Pacific-Schools-edit-3.png", tag: "rep", incentives: ["Application and Registration fee rebate"] },
             { name: "Australian International School Malaysia", logo: "https://myheart.my/wp-content/uploads/2024/10/AISM.png", tag: "rep", incentives: ["100% waiver of Admissions Fee (up to RM20,000)", "Priority enrolment for REP applicants", "Free school trial day"] },
             { name: "Crescendo HELP International School", logo: "https://myheart.my/wp-content/uploads/2024/10/crescend.png", tag: "rep", incentives: ["5% Bursary from Published School Fees", "Waiver of application fee (RM1,200 value)"] },
             { name: "Epsom College In Malaysia", logo: "https://myheart.my/wp-content/uploads/elementor/thumbs/1-4-e1715608959160-r1e474la50s4rawfuuv085s5vyfs8c5ri4hjdqm34s.png", tag: "rep", incentives: ["100% waiver of Enrolment Fees (Up to RM20,000)", "Complimentary EAL support for first term"] },
